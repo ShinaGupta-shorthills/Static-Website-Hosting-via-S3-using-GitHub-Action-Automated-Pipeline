@@ -35,6 +35,5 @@ jobs:
         run: |
           echo "======================================="
           echo "✅ Static Website Successfully Deployed"
-          echo "🌐 Website URL:"
-          echo "http://$BUCKET.s3-website-$REGION.amazonaws.com"
+          echo "http://$BUCKET.s3-website-$REGION.amazonaws.com/index.html"
           echo "======================================="
