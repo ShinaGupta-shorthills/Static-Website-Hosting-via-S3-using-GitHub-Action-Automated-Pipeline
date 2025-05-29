@@ -15,6 +15,7 @@ You created an S3 bucket, e.g., my-static-site-bucket.
 You enabled static website hosting for the S3 bucket.
 You created an IAM user with programmatic access and permissions for S3:
 AmazonS3FullAccess or custom permissions.
+Create bucket policy for public read access.
 You store the IAM credentials in your GitHub repository secrets:
 AWS_ACCESS_KEY_ID
 AWS_SECRET_ACCESS_KEY
