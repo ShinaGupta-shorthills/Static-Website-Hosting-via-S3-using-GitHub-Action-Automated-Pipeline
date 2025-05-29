@@ -27,12 +27,11 @@ jobs:
           aws s3 website s3://${{ secrets.S3_BUCKET }}/ \
             --index-document index.html \
             --error-document error.html || echo "Bucket already configured"
-
-      - name: Output website URL
-        run: |
-          echo "======================================="
-          echo "✅ Static Website Successfully Deployed"
-          echo "🌐 Website URL:"
-          echo "http://${{ secrets.S3_BUCKET }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com"
-          echo "======================================="
+            - name: Output website URL
+  run: |
+    echo "======================================="
+    echo "✅ Static Website Successfully Deployed"
+    echo "🌐 Website URL:"
+    echo "http://webhostingbys3.s3-website-us-east-1.amazonaws/index.html/"
+    echo "======================================="
 
