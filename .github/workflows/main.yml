@@ -1,7 +1,7 @@
 name: Deploy Static Website to S3
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:  # manual trigger from GitHub UI
 
 jobs:
   deploy:
@@ -24,9 +24,15 @@ jobs:
 
       - name: Configure S3 bucket for static website hosting
         run: |
-          aws s3 website s3://${{ secrets.S3_BUCKET }}/ --index-document index.html --error-document error.html || echo "Bucket already configured"
+          aws s3 website s3://${{ secrets.S3_BUCKET }}/ \
+            --index-document index.html \
+            --error-document error.html || echo "Bucket already configured"
 
       - name: Output website URL
         run: |
-          echo "Website URL: http://${{ secrets.S3_BUCKET }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com"
+          echo "======================================="
+          echo "✅ Static Website Successfully Deployed"
+          echo "🌐 Website URL:"
+          echo "http://${{ secrets.S3_BUCKET }}.s3-website-${{ secrets.AWS_REGION }}.amazonaws.com"
+          echo "======================================="
 
